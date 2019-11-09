@@ -29,32 +29,24 @@ html {
 	background: black;
 	color: white;
 	padding: 0.2em;
-	margin: 0 0.5em 0.5em;
+	margin: 0;
 	@extend %shadow-under;
 }
 
 .header {
 	position: sticky;
-	top: 0.5em;
+	top: 0;
 	@extend %page-elements;
 }
 
 .footer {
 	position: sticky;
-	bottom: 0.5em;
+	bottom: 0;
 	@extend %page-elements;
 	margin-top: auto;
 }
 
-.main {
-	font-family: 'Frank Ruhl Libre', Cambria, Cochin, Georgia, Times,
-		'Times New Roman', serif;
-	align-content: start;
-	background: $clr-content-bg;
-	width: 80%;
-	max-width: 12in;
-	margin: 0.5em auto 0.5em;
-	padding: 0.5em 0;
+.article {
 	h1 {
 		margin-bottom: 0.1em;
 	}
@@ -67,9 +59,20 @@ html {
 	hr {
 		margin: 0.5em 0;
 	}
+}
+
+.main {
+	font-family: 'Frank Ruhl Libre', Cambria, Cochin, Georgia, Times,
+		'Times New Roman', serif;
+	align-content: start;
+	background: $clr-content-bg;
+	width: 80%;
+	max-width: 12in;
+	margin: 0.5em auto 0.5em;
+	padding: 0;
+
 	border: 0.2em solid #eee;
-	border-radius: 0.2em;
-	padding: 1em;
+	// border-radius: 0.5em;
 	@extend %shadow-under;
 }
 
@@ -114,10 +117,25 @@ button::-moz-focus-inner {
 }
 
 .content-section {
-	margin-bottom: 1.5em;
-	background: linear-gradient(#ccc, #eee, #ccc);
+	background: linear-gradient(#ddd, #ccc, #ddd, #ccc);
 	padding: 1em;
-	border-radius: 0.3em;
+	// border-radius: 0.5em;
+	@extend %shadow-under;
+}
+
+.content-section + .content-section {
+	margin-top: 0.5em;
+}
+
+.layout {
+	display: flex;
+}
+
+.sidebar {
+	position: fixed;
+	top: 200px;
+	background: red;
+	flex-basis: 20%;
 }
 
 @media (max-width: 800px) {
