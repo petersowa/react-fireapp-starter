@@ -33,7 +33,11 @@ const Article = () => (
 			ab non deserunt. Voluptatem dolorem rerum error ipsum inventore a
 			adipisci eum ea quod?
 		</p>
-		<img src="https://picsum.photos/200/300" alt="random" />
+		<img
+			className="article__image"
+			src="https://picsum.photos/1000/1600"
+			alt="random"
+		/>
 		<p>
 			Saepe ipsam culpa a id sunt consequatur, rerum, consectetur dolorem
 			natus minima minus autem explicabo tempore, assumenda dolor ipsum

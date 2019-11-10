@@ -61,6 +61,14 @@ html {
 	}
 }
 
+.article__image {
+	display: block;
+	margin: auto;
+	width: 100%;
+	object-fit: cover;
+	outline: 5px solid red;
+}
+
 .main {
 	font-family: 'Frank Ruhl Libre', Cambria, Cochin, Georgia, Times,
 		'Times New Roman', serif;
@@ -132,10 +140,24 @@ button::-moz-focus-inner {
 }
 
 .sidebar {
-	position: fixed;
-	top: 200px;
-	background: red;
-	flex-basis: 20%;
+	position: sticky;
+	border: 0.2em solid #eee;
+	top: 2.1em;
+	margin: 0.5em 0.5em 0.5em;
+	height: fit-content;
+	flex-grow: 1;
+	text-decoration: none;
+	background: black;
+	ul {
+		height: calc(100vh - 5em);
+		list-style: none;
+		padding: 0 0.5em;
+		margin: 0;
+		line-height: 1.5rem;
+		color: #ccc;
+		background: linear-gradient(#111, #444, #222, #111);
+		@extend %shadow-under;
+	}
 }
 
 @media (max-width: 800px) {
