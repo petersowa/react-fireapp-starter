@@ -74,6 +74,9 @@ const Layout = ({ children }) => (
 		<div className="side-padding"></div>
 	</div>
 );
+Layout.propTypes = {
+	children: PropTypes.node.isRequired,
+};
 
 const App = () => {
 	return (
