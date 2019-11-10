@@ -67,7 +67,13 @@ const Sidebar = () => (
 	</aside>
 );
 
-const Layout = ({ children }) => <div className="layout">{children}</div>;
+const Layout = ({ children }) => (
+	<div className="layout">
+		<div className="side-padding"></div>
+		{children}
+		<div className="side-padding"></div>
+	</div>
+);
 
 const App = () => {
 	return (
