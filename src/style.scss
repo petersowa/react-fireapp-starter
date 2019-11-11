@@ -187,7 +187,24 @@ button::-moz-focus-inner {
 }
 
 @media (max-width: 600px) {
+	.layout {
+		flex-direction: column;
+	}
+
 	.sidebar {
-		display: none;
+		position: sticky;
+		top: 1.5em;
+		border: 0;
+		nav {
+			position: static;
+			top: 2.5em;
+		}
+		ul {
+			text-align: right;
+			height: auto;
+			li {
+				display: inline-block;
+			}
+		}
 	}
 }
