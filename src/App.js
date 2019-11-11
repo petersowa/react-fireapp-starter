@@ -10,7 +10,7 @@ Main.propTypes = {
 	children: PropTypes.node.isRequired,
 };
 
-const Article = () => (
+const Article = ({ imageId = 1070 }) => (
 	<article className="article">
 		<h1>Hello World.</h1>
 		<hr></hr>
@@ -35,7 +35,7 @@ const Article = () => (
 		</p>
 		<img
 			className="article__image"
-			src="https://picsum.photos/1000/1600"
+			src={`https://unsplash.it/900/400?image=${imageId}`}
 			alt="random"
 		/>
 		<p>
@@ -46,10 +46,13 @@ const Article = () => (
 		</p>
 	</article>
 );
+Article.propTypes = {
+	imageId: PropTypes.number,
+};
 
 const Section = () => (
 	<section className="content-section">
-		<Article />
+		<Article imageId={1071 + Math.floor(Math.random() * 12)} />
 		<button className="comment-button">Comment</button>
 	</section>
 );
@@ -58,10 +61,26 @@ const Sidebar = () => (
 	<aside className="sidebar">
 		<nav>
 			<ul>
-				<li>App</li>
-				<li>Profile</li>
-				<li>About</li>
-				<li>Contact</li>
+				<li>
+					<a className="sidebar__link" href="#1">
+						App
+					</a>
+				</li>
+				<li>
+					<a className="sidebar__link" href="#2">
+						Profile
+					</a>
+				</li>
+				<li>
+					<a className="sidebar__link" href="#3">
+						About
+					</a>
+				</li>
+				<li>
+					<a className="sidebar__link" href="#4">
+						Contact
+					</a>
+				</li>
 			</ul>
 		</nav>
 	</aside>

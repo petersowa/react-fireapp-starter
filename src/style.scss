@@ -71,7 +71,6 @@ body {
 	border: 0.2em solid #eee;
 	// top: 2.09em;
 	margin: 0.5em 0 0.5em;
-	margin-left: auto;
 	// height: fit-content;
 	flex-grow: 0;
 	text-decoration: none;
@@ -85,9 +84,22 @@ body {
 		height: calc(100vh - 5em);
 		list-style: none;
 		padding: 0 0.5em;
-		margin: 0;
+		margin: 0.5em;
 		line-height: 1.5rem;
 		color: #ccc;
+	}
+	&__link {
+		display: block;
+		text-decoration: none;
+		color: white;
+		padding: 0 0.5em;
+		&:hover {
+			background: #333;
+			width: 100%;
+		}
+		&:focus {
+			outline: 0.2em solid rgba(white, 0.4);
+		}
 	}
 }
 
@@ -171,5 +183,11 @@ button::-moz-focus-inner {
 @media (min-width: 1000px) {
 	html {
 		font-size: 0.6cm;
+	}
+}
+
+@media (max-width: 600px) {
+	.sidebar {
+		display: none;
 	}
 }
