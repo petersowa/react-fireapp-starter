@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import PropTypes from 'prop-types';
 
 const Header = () => <header className="header">Page Title - Header</header>;
@@ -10,52 +11,44 @@ Main.propTypes = {
 	children: PropTypes.node.isRequired,
 };
 
-const Article = ({ imageId = 1070 }) => (
-	<article className="article">
-		<h1>Hello World.</h1>
-		<hr></hr>
-		<h2>The is a boiler plate react app</h2>
-		<p>
-			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi odio
-			fuga dolores odit, mollitia veniam voluptate quasi maxime doloremque
-			tenetur? Unde molestiae asperiores reiciendis quaerat eos at
-			aspernatur molestias totam.
-		</p>
-		<p>
-			Vitae quia ipsam in modi omnis soluta perferendis unde, qui facilis
-			ducimus, suscipit animi corporis quidem eveniet, rerum aliquam
-			quibusdam vero sunt quae repellendus? Veniam autem quaerat nihil et
-			nostrum?
-		</p>
-		<p>
-			Amet officiis nulla excepturi sit necessitatibus illum quisquam
-			architecto doloribus perspiciatis ut voluptatem voluptas, et magnam
-			ab non deserunt. Voluptatem dolorem rerum error ipsum inventore a
-			adipisci eum ea quod?
-		</p>
-		<img
-			className="article__image"
-			src={`https://unsplash.it/900/400?image=${imageId}`}
-			alt="random"
-		/>
-		<p>
-			Saepe ipsam culpa a id sunt consequatur, rerum, consectetur dolorem
-			natus minima minus autem explicabo tempore, assumenda dolor ipsum
-			vitae quos voluptas? Enim quae tempore officiis nobis laudantium
-			recusandae minima?
-		</p>
-	</article>
-);
+const Article = props => {
+	const { article } = props;
+	const { title, subTitle, sections } = article;
+
+	return (
+		<article className="article" key={article.id}>
+			<h1 className="article__title">{title}</h1>
+			<hr></hr>
+			<h2 className="article__subtitle">{subTitle}</h2>
+			{sections.map(section => {
+				return (
+					<section className="article__section" key={section.id}>
+						{section.paragraphs.map((paragraph, index) => {
+							return (
+								<ReactMarkdown
+									key={index}
+									escapeHtml={false}
+									source={paragraph}
+								/>
+							);
+						})}
+					</section>
+				);
+			})}
+		</article>
+	);
+};
 Article.propTypes = {
 	imageId: PropTypes.number,
+	article: PropTypes.object.isRequired,
 };
 
-const Section = () => (
-	<section className="content-section">
-		<Article imageId={1071 + Math.floor(Math.random() * 12)} />
-		<button className="comment-button">Comment</button>
-	</section>
+const Section = props => (
+	<section className="content-section">{props.children}</section>
 );
+Section.propTypes = {
+	children: PropTypes.node.isRequired,
+};
 
 const Sidebar = () => (
 	<aside className="sidebar">
@@ -98,15 +91,19 @@ Layout.propTypes = {
 };
 
 const App = () => {
+	const { articles } = require('./content/articles.js');
+
 	return (
 		<div className="app-content">
 			<Header></Header>
 			<Layout>
 				<Sidebar />
 				<Main>
-					<Section></Section>
-					<Section></Section>
-					<Section></Section>
+					{articles.map(article => (
+						<Section key={article.id}>
+							{articles && <Article article={article}></Article>}
+						</Section>
+					))}
 				</Main>
 			</Layout>
 			<Footer></Footer>
