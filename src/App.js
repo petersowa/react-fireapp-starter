@@ -17,12 +17,17 @@ const Article = props => {
 
 	return (
 		<article className="article" key={article.id}>
-			<h1 className="article__title">{title}</h1>
+			{title && <h1 className="article__title">{title}</h1>}
 			<hr></hr>
-			<h2 className="article__subtitle">{subTitle}</h2>
+			{subTitle && <h2 className="article__subtitle">{subTitle}</h2>}
 			{sections.map(section => {
 				return (
-					<section className="article__section" key={section.id}>
+					<section className="article-section" key={section.id}>
+						{section.sectionTitle && (
+							<h1 className="article-section__title">
+								{section.sectionTitle}
+							</h1>
+						)}
 						{section.paragraphs.map((paragraph, index) => {
 							return (
 								<ReactMarkdown
