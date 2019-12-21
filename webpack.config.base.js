@@ -13,18 +13,17 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.ts(x?)/,
+				test: /\.(t|j)sx?$/,
 				exclude: /node_modules/,
 				use: [
 					{
-						loader: 'ts-loader',
+						loader: 'awesome-typescript-loader',
 					},
 				],
 			},
 			{
-				test: /\.js(x?)$/,
-				loader: 'babel-loader',
-				exclude: /node_modules/,
+				test: /\.js$/,
+				loader: 'source-map-loader',
 			},
 			{
 				test: /\.css$/,
