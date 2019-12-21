@@ -2,6 +2,8 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import PropTypes from 'prop-types';
 
+import Form from './Form';
+
 const Header = () => <header className="header">Page Title - Header</header>;
 const Footer = () => <footer className="footer">Page Footer - Author</footer>;
 const Main = ({ children }) => (

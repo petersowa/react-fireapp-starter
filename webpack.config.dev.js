@@ -12,4 +12,13 @@ module.exports = merge(baseConfig, {
 			'react-dom': '@hot-loader/react-dom',
 		},
 	},
+	module: {
+		rules: [
+			{
+				enforce: 'pre',
+				test: /\.js(x?)$/,
+				loader: 'source-map-loader',
+			},
+		],
+	},
 });
