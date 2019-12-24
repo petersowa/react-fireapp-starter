@@ -106,6 +106,7 @@ const App = () => {
 			<Layout>
 				<Sidebar />
 				<Main>
+					<Form></Form>
 					{articles.map(article => (
 						<Section key={article.id}>
 							{articles && <Article article={article}></Article>}
