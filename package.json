@@ -2,7 +2,8 @@
 	"name": "react-fireapp-starter",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "index.tsx",
+	"entry": "./src/index.tsx",
 	"scripts": {
 		"build": "webpack --config webpack.config.prod.js",
 		"dev": "webpack-dev-server --open --config webpack.config.dev.js",
@@ -59,6 +60,7 @@
 	"dependencies": {
 		"@babel/polyfill": "^7.7.0",
 		"@hot-loader/react-dom": "^16.11.0",
+		"@types/node": "^12.12.21",
 		"prop-types": "^15.7.2",
 		"raw-loader": "^3.1.0",
 		"react": "^16.11.0",
