@@ -6,9 +6,7 @@ import Form from './Form';
 
 const Header = () => <header className="header">Page Title - Header</header>;
 const Footer = () => <footer className="footer">Page Footer - Author</footer>;
-const Main = ({ children }) => (
-	<main className="main container">{children}</main>
-);
+const Main = ({ children }) => <main className="main">{children}</main>;
 Main.propTypes = {
 	children: PropTypes.node.isRequired,
 };
@@ -36,6 +34,7 @@ const Article = props => {
 									key={index}
 									escapeHtml={false}
 									source={paragraph}
+									className="test"
 								/>
 							);
 						})}

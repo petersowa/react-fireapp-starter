@@ -2,6 +2,12 @@
 
 $clr-page: white;
 $clr-content-bg: #eee;
+$clr-bg-code: #ccc;
+
+%code-fonts {
+	font-family: 'Source Sans Pro', 'Courier New', Courier, monospace;
+	font-size: 0.9rem;
+}
 
 html {
 	box-sizing: border-box;
@@ -156,14 +162,26 @@ body {
 	}
 }
 
+// .test {
+// 	min-width: fit-content;
+// 	background: yellowgreen;
+// 	overflow: hidden;
+// }
+
 .article-section {
 	border: 1px solid grey;
 	padding: 1em;
-	width: 100%;
+	// width: 100vw;
+	overflow: hidden;
 	pre {
-		overflow: auto;
-		background: yellow;
-		width: 100%;
+		background: $clr-bg-code;
+		min-width: fit-content;
+	}
+	code {
+		// max-width: 10rem;
+		overflow: hidden;
+		// border: 1px solid red;
+		@extend %code-fonts;
 	}
 
 	&__title {
